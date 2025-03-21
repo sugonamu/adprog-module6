@@ -1,5 +1,5 @@
-use std::thread;
 use std::sync::{mpsc, Arc, Mutex};
+use std::thread;
 
 pub struct ThreadPool {
     workers: Vec<Worker>,
@@ -23,7 +23,9 @@ impl ThreadPool {
 
         ThreadPool { workers, sender }
     }
-
+    pub fn build(size: usize) -> Self {
+        ThreadPool::new(size)
+    }
     pub fn execute<F>(&self, f: F)
     where
         F: FnOnce() + Send + 'static,
@@ -33,6 +35,7 @@ impl ThreadPool {
     }
 }
 
+#[allow(dead_code)]
 struct Worker {
     id: usize,
     thread: Option<thread::JoinHandle<()>>,

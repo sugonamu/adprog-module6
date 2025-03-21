@@ -25,3 +25,9 @@ To simulate a delay, I added a `/sleep` route that pauses for 10 seconds. While 
 This milestone upgraded my server to handle multiple requests concurrently using a ThreadPool. I created a thread pool that pre-spawns worker threads and assigns incoming connections as jobs. Now, requests to `/` or `/random` aren’t blocked even if `/sleep` is running. This helped me understand how thread scheduling and task queues work, and how efficient servers are designed.
 
 ![Commit 5 screen capture](/assets/images/commit5.png)
+
+## Commit Bonus Reflection Notes
+
+In this bonus milestone, I added a `build()` method to the `ThreadPool` struct as an alternative to the existing `new()` constructor. Functionally, it behaves the same, but using `build()` can offer more semantic clarity — especially if you’re following the builder pattern or planning for future customization. I tested the server and it still runs correctly with `build()`.
+
+![Commit Bonus screen capture](/assets/images/bonus.png)
