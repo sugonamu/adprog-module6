@@ -19,3 +19,9 @@ In this milestone, I added simple request validation. The server now checks the 
 To simulate a delay, I added a `/sleep` route that pauses for 10 seconds. While testing, I visited `/sleep` and then immediately opened `/random`, which triggers a 404. Because the server is single-threaded, the 404 response also waited 10 seconds to show. I updated the `404.html` to clearly show when it appears. This helped me understand why single-threaded servers struggle with multiple users.
 
 ![Commit 4 screen capture](/assets/images/commit4.png)
+
+## Commit 5 Reflection Notes
+
+This milestone upgraded my server to handle multiple requests concurrently using a ThreadPool. I created a thread pool that pre-spawns worker threads and assigns incoming connections as jobs. Now, requests to `/` or `/random` aren’t blocked even if `/sleep` is running. This helped me understand how thread scheduling and task queues work, and how efficient servers are designed.
+
+![Commit 5 screen capture](/assets/images/commit5.png)
