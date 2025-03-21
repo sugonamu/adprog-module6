@@ -30,4 +30,4 @@ This milestone upgraded my server to handle multiple requests concurrently using
 
 In this bonus milestone, I added a `build()` method to the `ThreadPool` struct as an alternative to the existing `new()` constructor. Functionally, it behaves the same, but using `build()` can offer more semantic clarity — especially if you’re following the builder pattern or planning for future customization. I tested the server and it still runs correctly with `build()`.
 
-![Commit Bonus screen capture](/assets/images/bonus.png)
+![Commit Bonus screen capture](/assets/images/bonus1.png)
